@@ -1,0 +1,22 @@
+Database Disk 사용량 조회
+==================
+SELECT sys.databases.name,
+       CONVERT(VARCHAR, SUM(size)*8/1024) + ' MB' AS [Total disk space]
+FROM sys.databases
+JOIN sys.master_files
+ON sys.databases.database_id = sys.master_files.database_id
+GROUP BY sys.databases.name
+ORDER BY sys.databases.name;
+
+
+활성화되어 있는 트랜잭션을 즉시 처리 싱글유저모드
+===================================
+ALTER DATABASE [사용자데이터베이스] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+
+활성화 되어 있는 트랜잭션을 60초 후에 모두 처리하고 싱글유저모드 변경
+=================================================
+ALTER DATABASE [사용자데이터베이스] SET SINGLE_USER WITH ROLLBACK AFTER 60;
+
+싱글 유저 모드를 다시 멀티 유저 모드로 변경 (이거 꼭 해야 함!!!)
+===========================================
+ALTER DATABASE   [사용자데이터베이스] SET MULTI_USER

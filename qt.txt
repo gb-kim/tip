@@ -1,0 +1,65 @@
+1-1. QML에서 class접근 방법 1
+   - ctx->setContextProperty("dbcCommModel", DbcCommModel::getInstance());
+   - setContextProperty로 class를 등록 하면 qml에서 바로 Access가능 하다.
+
+1-2. QML에서 class접근 방법 2
+   - qmlRegisterType<QwtMainChartPlot>("QwtMainChart", 1, 0, "QwtMainChartPlot");
+   - import QwtMainChart 1.0
+   - QwtMainChartPlot {
+           id: qwtMainChartPlot
+     }
+   - 위와 같이 하면 QML에서 id로 QwtMainChartPlot class접근이 가능 하다.
+
+2. Q_PROPERTY
+    - Q_PROPERTY로 qml에서 C++ Data접근이 가능 하다.
+
+3. Q_INVOKABLE
+    - Q_INVOKABLE로 함수를 정의 하면 qml에서 함수 호출이 가능 하다.
+
+4. Thread 생성 방법
+   - QThread 상속 Class를 만들어 사용
+   - QThread와 QObject::moveToThread 사용(QT에서 추천하는 방법)
+   - QtConcurrent 클래서 사용(쓰레드풀)
+
+5. Thread간 메세지 전달
+   1) QObject::connect(&thread2, &QThread::DataReady, &thread2, &QThread::DataUpdate)
+      - Signal과 Slot을 연결 하여 사용
+      - emit로 Signal을 깨워 주면 Slot으로 Data전달됨
+      - Data전달 Type을 QT에서 제공 하는 Type을 사용해야 함.
+   2) QMetaObject::invokeMethod(this, "processData", Qt::QueuedConnection, Q_ARG(QVector<QString>, data));
+      - Slot만 만들어서 사용
+      - invokeMethod명령으로 Slot으로 Data전달 됨
+      - Data전달 Type을 QT에서 제공 하는 Type을 사용해야 함.
+
+6. 디버거 메세지
+    - qInstallMessageHandler를 사용 파일로 저장이 가능 하다
+    - qInfo(), qDebug(), qWarning(), qCritical(), qFatal() 이 있다.
+
+7. ini파일
+   - QSettings를 이용하면 ini파일 접근이 가능 하다.
+
+
+
+DXG Program Information
+==================
+1. config path는 /app이다.
+   - /app/tga50_cfg.dat   # TAG50 Config
+   - json format으로 관리 한다.
+   - 파일 안에 항목별로 그룹 지어 관리 한다.
+2. 정보
+   - MAX31855는 열전대(thermocouple) 센서의 아날로그 신호를 디지털 데이터로 변환하는 칩
+   - MAX31865 는 PT100 / PT1000 용 analog to digital converter
+   - 7055D는 DI-8CH, DO-8CH 제품이다.(ICPCON은 생산 회사이다.)
+   - hart_board는 AI과 Serial 통신을 동시에 가능한 HART 통신이 가능한 보드로 추정.
+
+3. Chart는 qwt를 사용 하므로 별도 다운로드 해서 빌드 해야 한다.
+
+
+
+문의사항
+  - dbc 뜻 ? => DBC(Digital Bidirectional Communication)
+  - Fold 및 파일 설명 필요
+  - Data 흐름 설명 필요
+  - 테스트 가능한 통합보드가 있는가 ?
+  - project를 2개로 분리한 목적은 ? / 분리 내용
+
