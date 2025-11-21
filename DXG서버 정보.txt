@@ -1,0 +1,9 @@
+IP : 106.251.244.178
+port : 11883
+dw.sw.optron / ehddndhqxmfhs
+
+접속 고정 IP: 106.251.244.178
+SSH PORT: 60200
+SSH ID: dxg
+SSH PW: dxg@Server!!!
+SSH Root PW: dxg@Admin###

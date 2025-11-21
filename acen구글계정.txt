@@ -1,0 +1,36 @@
+계정
+ID1 : ikoacen@gmail.com
+ID2 : iko01acen@gmail.com
+암호 공통 : dpdltmdps0729@
+
+ID3 : airacen0729@gmail.com
+암호 공통 : dpdltmdps0729!
+
+AMS-2000이 태블릿에 구글 제품 설치
+
+설명서 : 원격관리용 구글제품 설치 메뉴얼.pdf
+브라우져 : ChromeSetup.exe
+원격데스크톱 : chromeremotedesktophost.msi
+적용된 지역
+ikoacen@gmail.com
+a. 인천시청
+
+ iko01acen@gmail.com
+a. 사내_통신서버
+
+ㄱ. 경산_김제_단양_수원_서울
+ㄴ. 목포시청
+ㄷ. 제주_밀양
+airacen0729@gmail.com
+a. 사내 서버
+
+ㄱ. 사내_통신서버 - 남원_영동_연천
+ㄴ. 사내_통신서버 - 이원에너지
+ㄷ. 사내_웹서버 - 수도권 매립지
+ㄹ. 사외_통신서버 - 인천서구청
+
+원격 패스워드 : 030729
+인천서구청 : 332332
+
+
+제주서버 원격 : 121.137.142.108/zoc1218**

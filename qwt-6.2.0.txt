@@ -1,0 +1,16 @@
+windows MinGW qwt build 방법
+1) 시작->Qt 5.13.2->Qt 5.13.2 (MinGW 7.3.0 64-bit) 실행
+2) cd c:\qwt-6.2.0
+3) qmake qwt.pro
+4) mingw32-make
+5) mingw32-make install
+
+windows Visual Studio 2017 qwt build 방법
+1) cd C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build
+2) vcvarsall.bat amd64
+3) cd c:\qwt-6.2.0
+4) qmake qwt.pro
+5) nmake
+6) nmake install
+
+※ 설치 폴더에 변경이 필요한경우 qwtconfig.pri을 편집 할것

@@ -1,0 +1,30 @@
+commit 순서
+>git add .
+>git commit -m "message"
+>git push origin master
+
+1. 기본 명령
+  - git status 	// 현재 상태 
+  - git log		// 전체 Log
+  - git init 	// git 저장소 생성 하기
+  - git clone [https: ~~~~ ]	// 저장소 복제 및 다운로드 
+  - git commit -m "message"	// 커밋 생성
+  - git push origin master	// 변경 사항 원격 서버 업로드 (push)
+  - git pull			// 원격 저장소의 변경 내용을 현재 디렉토리로 가져오기 (pull)
+  - git diff [브랜치 이름] [다른 브랜치 이름]	// 변경 내용을 merge 하기 전에 바뀐 내용 비교
+
+2. Commit할 파일 선택
+  - git add [파일명]		// 입력된 파일 Stage
+  - git add [파일명1] [파일명2] ... [파일명n] 	// 여러 파일 한번에 Stage
+  - git add -A		// 저장소 안의 모든 파일을 Commit하고 싶을 때
+  - git add [폴더명]		// 어떤 폴더 안의 파일들을 모두 Stage하고 싶을 때
+
+3. Branch
+  - git branch [브랜치명]	// 브랜치 생성
+  - git checkout [브랜치명]	// 해당 브랜치로 이동
+  - git branch -b [브랜치명]	// 브랜치를 생성하고 해당 브랜치로 바로 이동
+  - git branch		// 원하는 브랜치로 이동했는지 확인
+  - git brach -a		// 모든 브랜치 확인
+  - git push origin [브랜치명]	// 원하는 브랜치로 push하여 원격 서버에 전송
+  - git branch -d [브랜치 이름]	// 브랜치 삭제 
+  - git merge [다른 브랜치 이름]	// 현재 브랜치에 다른 브랜치 수정사항 병합

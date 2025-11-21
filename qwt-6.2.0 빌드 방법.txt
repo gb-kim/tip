@@ -1,0 +1,38 @@
+# 3차 통합 보드용 VBox 우분투에서 빌드시
+ - arm 타겟 보드용 빌드시 qmake qwt.pro 명령 실행시 컴라일러 못 찾아서 에러가 나는데 PATH 환경 변수에 아래와 같이 arm 컴파일러 툴체인 설치 경로를 추가를 해줘야 함
+   export PATH=/opt/host/bin:$PATH
+
+# qwt-6.2.0 빌드 방법
+
+1. Windows 환경 빌드 방법
+  - QT 설치 폴더에서 'Qt 5.13.0 (MinGW 7.3.0 64-bit)' 명령행 프롬프트 실행
+  - qwt-6.2.0 폴더로 이동해서 아래 커맨드 실행
+    > qmake qwt.pro  --> Makefile이 생성됨
+    > mingw32-make
+    > mingw32-make install   -> C: 드라이브 루트에 'Qwt-6.2.0' 폴더에 관련 lib 및 header 파일이 복사됨
+    
+2. x86 linux 환경 빌드 방법
+  - x86 버전의 QT가설치된디렉토리에서 qmake를 사용해서 빌드 해야 함
+    > /opt/Qt5.9.9/gcc_64/bin/qmake qwt.pro
+    > make
+    > make install   -> /usr/local/qwt-6.2.0 디렉토리에 관련 lib 및 header 파일이 복사됨
+    
+3. arm target cpu 보드용 빌드 방법
+  - arm 버전의 QT가설치된디렉토리에서 qmake를 사용해서 빌드 해야 함
+    > /opt/toolchain/imx6q/dongwoo_integrated_2/bin/qmake qwt.pro
+    > make
+    > make install   -> /usr/local/qwt-6.2.0 디렉토리에 관련 lib 및 header 파일이 복사됨
+      x86 버전과 동일한 디렉토리에 복사 되서 관리를 용이하게 하기 위해 아래 경로로 이동 시키자
+      /usr/local/arm/qwt-6.2.0
+
+[Note 1]
+QT Creator를 사용해서 빌드는 가능 하지만 header 파일을 설치하기가 용이하지 않으며, 윈도우 환경에서는 
+전체 패키지가 모두 빌드 되지 않기도 하지만 qwt 라이브러리만 빌드는 가능하다.
+리눅스 환경 에서는 QT Creator를 사용해서 전체 빌드가 가능하나 역시 header 파일 설치가 용이하지 않다.
+
+[Note 2]
+arm target 용은 커널 이미지 빌드시 빌드 박스의 QT 설치 옵션에서 concurrent 옵션을 선택해야 qwt가 동작한다.
+
+[Note 3]
+qwt-6.2.0 빌드시 svg와 opengl 은 비활성화 시켜서 빌드 했다. qwt가 free 라이센스지만 혹시나 해서 빼고 빌드 했음
+qwtconfig.pri 파일에서 주석 처리 했음

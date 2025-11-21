@@ -1,0 +1,15 @@
+1. Socket Port점유 확인
+   - netstat -ano				// 전체 리스트 확인
+   - netstat -ano | findstr 'PortNo'		// 특정 포트 확인
+   - tasklist /svc /FI "PID eq PidNo"		// 프로세스 정보 확인
+   - taskkill /f /pid PidNo			// 프로세스 종료
+
+2. 포트 포워딩 추가 방법
+   - 192.168.0.1 접속
+   - Login(acen/acen1234!)
+   - 정책및객체->가상IP : 포트 포워딩 추가
+   - 정책및객체->방화벽정책 : 방화벽 추가
+   - 해당 컴퓨터 Windows 방화벽 추가
+
+3. windows 검색
+   - findstr /s "찾을_텍스트" *.*
